@@ -1,0 +1,17 @@
+<div class="m-1 p-4">
+	<button
+		class="btn btn-outline-primary btn-block"
+		[class.active]="service.currentCategory == ''"
+		(click)="service.currentCategory = ''"
+	>
+		All Brands
+	</button>
+	<button
+		*ngFor="let category of service.categories"
+		class="btn btn-outline-primary btn-block"
+		[class.active]="service.currentCategory.toLowerCase() == category.toLowerCase()"
+		(click)="service.currentCategory = category"
+	>
+		{{ category }}
+	</button>
+</div>

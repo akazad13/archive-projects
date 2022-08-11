@@ -1,0 +1,142 @@
+<div class="header-bg p-3 pl-5">
+    <div class="row">
+        <div class="float-left col-0">
+            <button
+                *ngIf="service.currentCategory != 'all'"
+                class="btn btn-primary"
+                routerLink="/store/{{ service.currentCategory }}/{{
+                    service.currentPage
+                }}"
+            >
+                Back
+            </button>
+            <button
+                *ngIf="service.currentCategory == 'all'"
+                class="btn btn-primary"
+                routerLink="/store/{{ service.currentPage }}"
+            >
+                Back
+            </button>
+        </div>
+
+        <h3 class="col">Product Details</h3>
+        <div class="float-right col-0">
+            <store-cartsummary></store-cartsummary>
+        </div>
+        <div class="float-right mr-2">
+            <button
+                class="btn btn-primary mr-2"
+                routerLink="/admin/login"
+                *ngIf="!authenticated"
+            >
+                Login
+            </button>
+            <button
+                class="btn btn-secondary"
+                routerLink="/signup"
+                *ngIf="!authenticated"
+            >
+                Sign Up
+            </button>
+
+            <span *ngIf="authenticated" class="mr-4">
+                Hello {{ username }}
+            </span>
+
+            <button
+                class="btn btn-sm btn-warning"
+                (click)="authService.logout()"
+                *ngIf="authenticated"
+            >
+                Log Out
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pt-5 pl-5 pr-5">
+    <div class="row">
+        <div class="col text-center">
+            <img
+                style="width: 400px; height: 400px"
+                src="../../../assets/images/{{ product?.brand }}/{{
+                    product?.productImgUrl
+                }}"
+                class="img"
+                alt="Responsive image"
+                width="auto"
+                height="370px"
+            />
+        </div>
+
+        <div class="col">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ product?.name || 'No Data' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Brand</th>
+                        <td>{{ product?.brand || 'No Data' }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Price</th>
+                        <td>{{ product?.price | currency: 'USD':'symbol' }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Feature</th>
+                        <td>
+                            <ul
+                                *ngFor="
+                                    let item of product?.productFeatures.split(
+                                        ','
+                                    )
+                                "
+                            >
+                                <li>{{ item }}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <button
+                    class="btn btn-m btn-success"
+                    (click)="addToCart(product)"
+                >
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="description p-5">
+    <table class="table table-striped">
+        <th>Description</th>
+        <td>{{ product?.description || 'No Data' }}</td>
+    </table>
+</div>
+
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <th colspan="2" class="supplier-bg">Supplier</th>
+        </tr>
+        <tr>
+            <th class="pl-3">Name</th>
+            <td>{{ product?.supplier?.name }}</td>
+        </tr>
+        <tr class="pl-3">
+            <th>City</th>
+            <td>{{ product?.supplier?.city }}</td>
+        </tr>
+        <tr class="pl-3">
+            <th>State</th>
+            <td>{{ product?.supplier?.state }}</td>
+        </tr>
+    </tbody>
+</table>

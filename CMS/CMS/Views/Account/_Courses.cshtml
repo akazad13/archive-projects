@@ -1,0 +1,73 @@
+﻿<div class="card-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-9">
+                    <h4>My Courses</h4>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#courseModal">Add New Course</button>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="coursesTable" class="table data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th style="width: 75px;">Course ID</th>
+                        <th>Course Name</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="grid-table-body"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div id="courseModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add/Update Course</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="updateCourseForm">
+                            <div class="form-group row">
+                                <label for="courseName" class="col-4 col-form-label">Course Name</label>
+                                <div class="col-8">
+                                    <input maxlength="50" id="courseName" name="courseName" class="form-control here" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="courseDescr" class="col-4 col-form-label">Course Description</label>
+                                <div class="col-8">
+                                    <textarea maxlength="200" id="courseDescr" name="courseDescr" class="form-control" type="text" value="" rows="4" cols="50"> </textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-id="0" class="btn btn-primary" id="btnCourseModal">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script defer="defer">
+    var coursesTable;
+</script>

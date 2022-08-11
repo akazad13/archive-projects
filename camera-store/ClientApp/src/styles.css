@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+.btn-info {
+    background-color: #343a40 !important;
+    color: #fff;
+}
+.btn-outline-info:not(:disabled):not(.disabled).active,
+.btn-outline-info:not(:disabled):not(.disabled):active,
+.show > .btn-outline-info.dropdown-toggle,
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.show > .btn-outline-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #343a40 !important;
+    border-color: #343a40;
+}
+.btn-outline-info:hover,
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #343a40 !important;
+    border-color: #343a40;
+}

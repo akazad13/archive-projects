@@ -1,0 +1,81 @@
+<div *ngIf="products?.length > 0; else nodata" class="p-4">
+    <div class="row">
+        <div *ngFor="let product of products" class="card m-1 p-1 bg-light p-3">
+            <div class="col">
+                <div style="width: 16rem">
+                    <img
+                        style="width: 250px; height: 200px"
+                        class="card-img-top"
+                        src="../../assets/images/{{ product?.brand }}/{{
+                            product?.productImgUrl
+                        }}"
+                        alt="Card image cap"
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a
+                                *ngIf="service.currentCategory.length > 0"
+                                routerLink="/store/{{
+                                    service.currentCategory
+                                }}/{{ service.currentPage }}/products/{{
+                                    product.productId
+                                }}"
+                                >{{
+                                    product.name.length > 30
+                                        ? product.name.substr(0, 30) + '...'
+                                        : product.name
+                                }}</a
+                            >
+                            <a
+                                *ngIf="service.currentCategory.length == 0"
+                                routerLink="/store/all/{{
+                                    service.currentPage
+                                }}/products/{{ product.productId }}"
+                                >{{
+                                    product.name.length > 30
+                                        ? product.name.substr(0, 30) + '...'
+                                        : product.name
+                                }}</a
+                            >
+                        </h5>
+
+                        <p class="card-text" style="text-align: justify">
+                            {{
+                                product.description.length > 45
+                                    ? product.description.substr(0, 45) + '...'
+                                    : product.description
+                            }}
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <span
+                                    class="float-left badge-pill badge-info p-1 pl-2 pr-2"
+                                >
+                                    {{
+                                        product.price | currency: 'USD':'symbol'
+                                    }}
+                                </span>
+                            </div>
+
+                            <div class="col">
+                                <div>
+                                    <button
+                                        class="float-right btn btn-sm btn-success"
+                                        (click)="addToCart(product)"
+                                    >
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100"></div>
+        </div>
+    </div>
+</div>
+
+<ng-template #nodata>
+    <h4 class="m-2">Waiting for data...</h4>
+</ng-template>

@@ -1,0 +1,49 @@
+<div class="form-group">
+    <label>Name</label>
+    <input class="form-control" [(ngModel)]="product.name" />
+</div>
+<div class="form-group">
+    <label>Brand</label>
+    <input class="form-control" [(ngModel)]="product.brand" />
+</div>
+<div class="form-group">
+    <label>Supplier</label>
+    <select
+        class="form-control"
+        [(ngModel)]="product.supplier"
+        [compareWith]="compareSuppliers"
+    >
+        <option *ngFor="let s of suppliers" [ngValue]="s">{{ s.name }}</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label class="pr-5">Select Image</label>
+    <input
+        #imageInput
+        type="file"
+        accept="image/*"
+        (change)="processFile(imageInput)"
+    />
+</div>
+
+<div class="form-group">
+    <label>Features (Please insert each feature with comma separated)</label>
+    <textarea
+        class="form-control"
+        [(ngModel)]="product.productFeatures"
+        style="height: 170px"
+    ></textarea>
+</div>
+<div class="form-group">
+    <label>Description</label>
+    <textarea
+        class="form-control"
+        [(ngModel)]="product.description"
+        style="height: 170px"
+    ></textarea>
+</div>
+<div class="form-group">
+    <label>Price</label>
+    <input type="number" class="form-control" [(ngModel)]="product.price" />
+</div>

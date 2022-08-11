@@ -1,0 +1,43 @@
+﻿@model WMC.Models.Consultation
+
+<div class="app-auth-body mx-auto w-75" style="background: #fff; padding: 20px">
+    <h2 class="app-page-title mb-4">View Consultation Request</h2>
+
+    <div class="auth-form-container text-start mx-auto">
+        <form class="auth-form auth-signup-form" id="updateConsultationReqForm">
+            <div class="email mb-3 row">
+                <div class="col-4">Customer Name</div>
+                <div class="col-8">@Model.CustomerName</div>
+            </div>
+            <div class="email mb-3 row">
+                <div class="col-4">Company Name</div>
+                <div class="col-8">@Model.CompanyName</div>
+            </div>
+            <div class="email mb-3 row">
+                <div class="col-4">Service</div>
+                <div class="col-8">@Model.ServiceName</div>
+            </div>
+            <div class="email mb-3 row">
+                <div class="col-4">Consultation Date</div>
+                <div class="col-8">@(Model.ConsultationDate.ToShortDateString())</div>
+            </div>
+
+            <div class="email mb-3 row">
+                <div class="col-4">Waste Management Issue</div>
+                <div class="col-8">@Model.Issue</div>
+            </div>
+
+            <div class="email mb-3 row">
+                <div class="col-4">Remarks</div>
+                <div class="col-8"><input id="remarks" name="remarks" type="text" class="form-control" value="@Model.Remarks"
+                        required="required"></div>
+
+            </div>
+
+            <div class="text-center">
+                <button type="button" class="btn app-btn-primary theme-btn mx-auto" onclick="approveOrReject(@Model.Id, true)">Approve Request</button>
+                <button type="button" class="btn app-btn-secondary theme-btn mx-auto" onclick="approveOrReject(@Model.Id, false)">Reject Request</button>
+            </div>
+        </form>
+    </div>
+</div>

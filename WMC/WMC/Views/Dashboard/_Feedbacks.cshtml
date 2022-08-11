@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WMC.Models.Feedback>
+
+<div class="row g-3 mb-4 align-items-center justify-content-between">
+    <div class="col-9">
+        <h1 class="app-page-title mb-0">View Feedbacks</h1>
+    </div>
+    <div class="col-2">
+        <button type="button" class="btn btn-primary float-right" id="addFeedbacks" style="color: #fff">Add Feedback</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Customer Name</th>
+                    <th>Company Name</th>
+                    <th>Service Name</th>
+                    <th>Feedback</th>
+                    <th>Feedback Date</th>
+                </tr>
+            </thead>
+            <tbody class="grid-table-body">
+                @{
+                    int i = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    i += 1;
+                    <tr>
+                        <td>@(i)</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.CompanyName</td>
+                        <td>@item.ServiceName</td>
+                        <td>@item.Description</td>
+                        <td>@(item.FeedbackDate.ToShortDateString())</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

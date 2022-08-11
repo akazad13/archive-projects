@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WMC.Models.Consultation>
+
+<section class="app">
+	<header class="app-header fixed-top">
+		<div class="app-header-inner">
+			@(await Html.PartialAsync("_topbar"))
+			@(await Html.PartialAsync("_sidebar"))
+
+		</div>
+	</header>
+	<div class="app-wrapper">
+		@(await Html.PartialAsync("_ConsultancyReq", Model))
+	</div>
+</section>
+<script>
+	var dashboardUrls = {
+		AddConsultationForm: '@Url.Action("AddConsultation", "Dashboard")',
+		AddConsultation: '@Url.Action("AddConsultation", "Dashboard")',
+		UpdateConsultationForm: '@Url.Action("UpdateConsultation", "Dashboard")',
+		UpdateConsultation: '@Url.Action("UpdateConsultation", "Dashboard")',
+		GetFileUrl: '@Url.Action("GetUploadedFileLink", "Dashboard")',
+		GetNotifications: '@Url.Action("GetNotifications", "Dashboard")',
+		GetFeedbacks: '@Url.Action("GetFeedbacks", "Dashboard")',
+		AddFeedbackForm: '@Url.Action("AddFeedback", "Dashboard")',
+		AddFeedback: '@Url.Action("AddFeedback", "Dashboard")',
+		GetStaffs: '@Url.Action("GetStaffs", "Dashboard")',
+		AddStaff: '@Url.Action("AddStaff", "Dashboard")',
+	};
+</script>

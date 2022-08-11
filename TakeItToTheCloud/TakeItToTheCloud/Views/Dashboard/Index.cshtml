@@ -1,0 +1,20 @@
+﻿@model IEnumerable<TakeItToTheCloud.Models.Dto.UploadedFileDetails>
+
+<section class="app">
+	<header class="app-header fixed-top">
+		<div class="app-header-inner">
+			@(await Html.PartialAsync("_topbar"))
+
+		</div>
+	</header>
+	<div class="app-wrapper">
+		@(await Html.PartialAsync("_UploadedFiles", Model))
+	</div>
+</section>
+<script>
+	var dashboardUrls = {
+		getUploadPage: '@Url.Action("AddUpdateUploadedFile", "Dashboard")',
+		deleteFile: '@Url.Action("DeleteFile", "Dashboard")',
+		getProfile: '@Url.Action("GetProfile", "Account")'
+	};
+</script>

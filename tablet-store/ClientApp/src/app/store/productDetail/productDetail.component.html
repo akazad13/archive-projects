@@ -1,0 +1,147 @@
+<div class="container-fluid header-bg p-3 pl-5">
+    <div class="row">
+        <div class="float-left col-0">
+            <button
+                *ngIf="service.currentCategory != 'all'"
+                class="btn btn-light"
+                routerLink="/store/{{ service.currentCategory }}/{{
+                    service.currentPage
+                }}"
+                style="width: 60px; height: 45px; cursor: pointer"
+            >
+                <img
+                    src="../../../assets/images/back_arrow.svg"
+                    style="float: left"
+                />
+            </button>
+            <div
+                class="btn btn-light"
+                *ngIf="service.currentCategory == 'all'"
+                routerLink="/store/{{ service.currentPage }}"
+                style="width: 60px; height: 45px; cursor: pointer"
+            >
+                <img
+                    style="width: 400px; height: 400px"
+                    src="../../../assets/images/back_arrow.svg"
+                    style="float: left"
+                />
+            </div>
+        </div>
+
+        <h3 class="col">Product Details</h3>
+        <div class="float-right col-0">
+            <store-cartsummary></store-cartsummary>
+        </div>
+        <div class="float-right mr-2">
+            <button
+                class="btn btn-primary mr-2"
+                routerLink="/admin/login"
+                *ngIf="!authenticated"
+            >
+                Login
+            </button>
+            <button
+                class="btn btn-secondary"
+                routerLink="/signup"
+                *ngIf="!authenticated"
+            >
+                Sign Up
+            </button>
+
+            <span *ngIf="authenticated" class="mr-4">
+                Hello {{ username }}
+            </span>
+
+            <button
+                class="btn btn-sm btn-warning"
+                (click)="authService.logout()"
+                *ngIf="authenticated"
+            >
+                Log Out
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pt-5 pl-5 pr-5">
+    <div class="row">
+        <div class="col">
+            <img
+                src="../../../assets/images/{{ product?.brand }}/{{
+                    product?.productImgUrl
+                }}"
+                class="img"
+                alt="Responsive image"
+                width="auto"
+                height="370px"
+            />
+        </div>
+
+        <div class="col">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>
+                            <b>{{ product?.name || 'No Data' }}</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Rating</th>
+                        <div class="p-2">
+                            <store-ratings [product]="product"></store-ratings>
+                        </div>
+                    </tr>
+                    <tr>
+                        <th>Brand</th>
+                        <td>{{ product?.brand || 'No Data' }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Price</th>
+                        <td>{{ product?.price | currency: 'USD':'symbol' }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Price</th>
+                        <td>{{ product?.price | currency: 'USD':'symbol' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Supplier</th>
+                        <td>
+                            {{ product?.supplier?.name }},
+                            {{ product?.supplier?.city }},
+                            {{ product?.supplier?.state }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <button
+                    class="btn btn-m btn-success"
+                    (click)="addToCart(product)"
+                >
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pl-5 pr-5 pt-5">
+    <table class="table table-striped">
+        <th>Features</th>
+        <td>
+            <ul *ngFor="let item of product?.productFeatures.split(',')">
+                <li>{{ item }}</li>
+            </ul>
+        </td>
+    </table>
+</div>
+
+<div class="p-5">
+    <table class="table table-striped">
+        <th>Description</th>
+        <td>{{ product?.description || 'No Data' }}</td>
+    </table>
+</div>

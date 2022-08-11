@@ -1,0 +1,76 @@
+﻿@{
+	ViewData["Title"] = "Join";
+}
+
+<section class="app app-signup p-0">
+	<div class="row g-0 app-auth-wrapper">
+		<div class="col-12 col-md-12 col-lg-12 auth-main-col text-center p-5">
+			<div class="d-flex flex-column align-content-end">
+				<div class="app-auth-body mx-auto">
+					<h2 class="auth-heading text-center mb-1">Take It To The Cloud</h2>
+					<h2 class="auth-heading text-center mb-4">Sign up</h2>
+
+					<div class="auth-form-container text-start mx-auto">
+						<form class="auth-form auth-signup-form" id="registerForm">
+							<div class="email mb-3">
+								<label class="sr-only" for="customerName">First Name</label>
+								<input id="firstName" name="first-name" type="text"
+									class="form-control signup-name" placeholder="First Name" required="required">
+							</div>
+							<div class="email mb-3">
+								<label class="sr-only" for="customerName">Last Name</label>
+								<input id="lastName" name="last-name" type="text"
+									class="form-control signup-name" placeholder="Last Name" required="required">
+							</div>
+							<div class="email mb-3">
+								<label class="sr-only" for="email">Your Email</label>
+								<input id="email" name="signup-email" type="email" class="form-control signup-email"
+									placeholder="Email" required="required">
+							</div>
+							<div class="password mb-3">
+								<label class="sr-only" for="password">Password</label>
+								<input id="password" name="password" type="password"
+									class="form-control signup-password" placeholder="Enter a password"
+									required="required">
+							</div>
+							<div class="password mb-3">
+								<label class="sr-only" for="confirmPassword">Confirm Password</label>
+								<input id="confirmPassword" name="confirm-password" type="password"
+									class="form-control signup-password" placeholder="Confrim password"
+									required="required">
+							</div>
+							<div class="email mb-3">
+								<label class="sr-only" for="about">Tell us about yourself</label>
+								<input id="about" name="about" type="text" class="form-control signup-name"
+									placeholder="Tell us about yourself" required="required">
+							</div>
+
+							<div class="text-center">
+								<button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Sign
+									Up</button>
+							</div>
+						</form>
+						<!--//auth-form-->
+
+						<div class="auth-option text-center pt-5">Already have an account? <a class="text-link"
+								asp-action="login" asp-controller="account">Log in</a></div>
+					</div>
+					<!--//auth-form-container-->
+
+
+
+				</div>
+				<!--//auth-body-->
+
+			</div>
+			<!--//flex-column-->
+		</div>
+
+	</div>
+	<!--//row-->
+</section>
+
+
+<script>
+	var registerUrl = '@Url.Action("Register", "Account")';
+</script>

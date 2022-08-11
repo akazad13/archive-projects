@@ -1,0 +1,45 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.app {
+    min-height: 90vh !important;
+}
+
+.copyright {
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+.app-auth-wrapper {
+    height: 90vh !important;
+}
+
+@media (min-width: 1200px) {
+    .app-header-inner {
+        margin-left: 90px;
+        margin-top: 0.7%;
+    }
+    .app-wrapper {
+        margin-left: 0px;
+    }
+}
+
+.nav-link {
+    cursor: pointer;
+}

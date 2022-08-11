@@ -1,0 +1,44 @@
+<div class="navbar bg-dark text-white bg-info mb-1">
+    <a class="navbar-brand text-white">SPORTS STORE Admin</a>
+    <div class="float-right navbar-text">
+        <span class="mr-4"> Hello {{ username }} </span>
+
+        <button class="btn btn-sm btn-warning" (click)="authService.logout()">
+            Log Out
+        </button>
+    </div>
+</div>
+
+<div class="col-3 fixed-bottom mb-1">
+    <a class="btn btn-block btn-secondary" routerLink="/store"> Store </a>
+</div>
+
+<div class="row no-gutters pt-3">
+    <div class="col-3">
+        <button
+            class="btn btn-block btn-outline-info m-1"
+            routerLink="/admin"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+        >
+            Overview
+        </button>
+        <button
+            class="btn btn-block btn-outline-info m-1"
+            routerLink="/admin/products"
+            routerLinkActive="active"
+        >
+            Products
+        </button>
+        <button
+            class="btn btn-block btn-outline-info m-1"
+            routerLink="/admin/orders"
+            routerLinkActive="active"
+        >
+            Orders
+        </button>
+    </div>
+    <div class="col pl-5 pr-5">
+        <router-outlet></router-outlet>
+    </div>
+</div>

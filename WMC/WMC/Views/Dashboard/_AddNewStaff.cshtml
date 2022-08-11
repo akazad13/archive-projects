@@ -1,0 +1,39 @@
+﻿<div class="app-auth-body mx-auto w-75" style="background: #fff; padding: 20px">
+    <h2 class="app-page-title mb-4">Add New Staff</h2>
+
+    <div class="auth-form-container text-start mx-auto">
+        <form class="auth-form auth-signup-form" id="addNewStaffForm" autocomplete="off">
+            <div class="email mb-3">
+                <label class="sr-only" for="staffName">Name</label>
+                <input id="staffName" name="staffName" type="text" class="form-control signup-name"
+                       placeholder="Full Name" required="required" autocomplete="off">
+            </div>
+            <div class="email mb-3">
+                <label class="sr-only" for="contractNumber">Contact Number</label>
+                <input id="contractNumber" name="contract-number" type="text"
+                       class="form-control signup-name" placeholder="Contract Number" required="required" autocomplete="off">
+            </div>
+            <div class="email mb-3">
+                <label class="sr-only" for="companyName">Company Name</label>
+                <input id="companyName" name="company-name" type="text" class="form-control signup-name"
+                       placeholder="Company name" required="required" autocomplete="off">
+            </div>
+            <div class="email mb-3">
+                <label class="sr-only" for="email">Your Email</label>
+                <input id="email" name="signup-email" type="email" class="form-control signup-email"
+                       placeholder="Email" required="required" autocomplete="off">
+            </div>
+            <div class="password mb-3">
+                <label class="sr-only" for="password">Password</label>
+                <input id="password" name="password" type="password"
+                       class="form-control signup-password" placeholder="Enter a password"
+                       required="required" autocomplete="off">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn app-btn-primary w-25 theme-btn mx-auto">Add New Staff</button>
+                <button type="button" class="btn app-btn-secondary w-25 theme-btn mx-auto" onclick="clickSidebar('sidebarAddNewStaff')">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

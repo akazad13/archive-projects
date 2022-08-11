@@ -1,0 +1,45 @@
+<div class="app-auth-body mx-auto w-75" style="background: #fff; padding: 20px">
+    <h2 class="app-page-title mb-4">Request for Consultation</h2>
+
+    <div class="auth-form-container text-start mx-auto" >
+        <form enctype="multipart/form-data" class="auth-form auth-signup-form" id="reqForConsultationForm" asp-action="AddConsultation" asp-controller="Dashboard" method="post">
+            <div class="email mb-3">
+                <label class="sr-only" for="serviceName">Customer Name</label>
+                <input id="customerName" name="customerName" type="text" class="form-control signup-name"
+                    placeholder="Customer name" required="required">
+            </div>
+            <div class="email mb-3">
+                <label class="sr-only" for="serviceName">Company Name</label>
+                <input id="companyName" name="CompanyName" type="text" class="form-control signup-name"
+                    placeholder="Company name" required="required">
+            </div>
+            <div class="email mb-3">
+                <label class="sr-only" for="serviceName">Service</label>
+                <input id="serviceName" name="serviceName" type="text" class="form-control signup-name"
+                    placeholder="Service" required="required">
+            </div>
+            <div class="email mb-3">
+                <label class="sr-only" for="consultationDate">Consultation Date</label>
+                <input id="consultationDate" name="consultationDate" type="date" class="form-control signup-name"
+                    placeholder="Consultation Date" required="required">
+            </div>
+
+            <div class="email mb-3">
+                <label class="sr-only" for="wasteManagementIssue">Waste Management Issue</label>
+                <input id="wasteManagementIssue" name="issue" type="text" class="form-control signup-name"
+                    placeholder="Waste Management Issue" required="required">
+            </div>
+           
+            <div class="email mb-3">
+                 <label class="sr-only" for="doc">Upload Doc</label>
+                <input id="doc" name="doc" type="file" class="form-control signup-name" required="required">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn app-btn-primary w-25 theme-btn mx-auto">Create Consultation
+                    Request</button>
+                <button type="button" class="btn app-btn-secondary w-25 theme-btn mx-auto" onclick="getConsulationReqs()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

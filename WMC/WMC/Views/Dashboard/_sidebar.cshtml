@@ -1,0 +1,58 @@
+<div id="app-sidepanel" class="app-sidepanel">
+    <div id="sidepanel-drop" class="sidepanel-drop"></div>
+    <div class="sidepanel-inner d-flex flex-column">
+        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+        <div class="app-branding">
+            <a class="app-logo" href="index.html">
+                <img class="logo-icon me-2" src="~/images/app-logo.svg"
+                     alt="logo"><span class="logo-text">PORTAL</span>
+            </a>
+
+        </div>
+
+        <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+            <ul class="app-menu list-unstyled">
+                @*  <li class="nav-item">
+                <a class="nav-link ">
+                <span class="nav-icon"> <i class="fa fa-home" aria-hidden="true"></i> </span>
+                <span class="nav-link-text">Overview</span>
+                </a>
+                </li>*@
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="getConsulationReqs()">
+                        <span class="nav-icon"><i class="fa fa-handshake" aria-hidden="true"></i></span>
+                        <span class="nav-link-text">Consultation</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="getFeedbacks(this)" id="sidebarFeedback">
+                        <span class="nav-icon"><i class="fas fa-comments"></i></span>
+                        <span class="nav-link-text">Feedback</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="getNotificaions(this)" id="">
+                        <span class="nav-icon"><i class="fa fa-bell" aria-hidden="true"></i></span>
+                        <span class="nav-link-text">Notifications</span>
+                    </a>
+                </li>
+                <li class="nav-item" style="@(ViewBag.isManager == true ? "": "display:none")">
+                    <a class="nav-link" onclick="getStaffs(this)" id="sidebarAddNewStaff">
+                        <span class="nav-icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="nav-link-text">Staffs</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="app-menu list-unstyled">
+                <li class="nav-item">
+                    <a class="nav-link"  onclick="document.getElementById('logoutForm').submit()">
+                        <span class="nav-icon"><i class="fa fa-sign-out-alt" aria-hidden="true"></i></span>
+                        <span class="nav-link-text">Logout</span>
+                    </a>
+                    <form id="logoutForm" method="post" asp-controller="Account" asp-action="LogOut" style="display: none"></form>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</div>

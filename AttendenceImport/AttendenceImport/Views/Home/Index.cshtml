@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var success = Context.Request.Query["s"];
+}
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-12">
+            <form method="post" asp-action="UploadFile" asp-controller="Home" enctype="multipart/form-data">
+                <div class="row pb-3">
+                    <div class="col-12">
+                        <h4>Upload Excel File</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="file" id="reportfile" name="reportfile" class="form-control" style="padding: 3px;" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary" id="btnUpload" value="Upload" />
+                    </div>
+                </div>
+                @{
+                    if (success == "1")
+                    {
+                        <div class="row pt-5 pl-3">
+                            <span class="badge badge-success p-3">Successfully imported the data</span>
+                        </div>
+                    }
+                    else if (success == "0")
+                    {
+                        <div class="row pt-5 pl-3">
+                            <span class="badge badge-danger p-3">@Context.Request.Query["errmsg"]</span>
+                        </div>
+                    }
+                }
+
+            </form>
+        </div>
+    </div>
+</div>

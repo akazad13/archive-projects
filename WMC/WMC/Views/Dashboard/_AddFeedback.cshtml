@@ -1,0 +1,39 @@
+﻿<div class="app-auth-body mx-auto w-75" style="background: #fff; padding: 20px">
+    <h2 class="app-page-title mb-4">Give Feedback</h2>
+
+    <div class="auth-form-container text-start mx-auto" >
+        <form class="auth-form auth-signup-form" id="addFeedbackForm">
+            <div class="email mb-3">
+                <label class="sr-only" for="serviceName">Your Name</label>
+                <input id="customerName" name="customerName" type="text" class="form-control signup-name"
+                    placeholder="Your name" required="required">
+            </div>
+            <div class="email mb-3">
+                <label class="sr-only" for="serviceName">Company Name</label>
+                <input id="companyName" name="CompanyName" type="text" class="form-control signup-name"
+                    placeholder="Company name" required="required">
+            </div>
+            <div class="email mb-3">
+                <label class="sr-only" for="serviceName">Service</label>
+                <input id="serviceName" name="serviceName" type="text" class="form-control signup-name"
+                    placeholder="Service" required="required">
+            </div>
+            <div class="email mb-3">
+                <label class="sr-only" for="feedbackDate">Feedback Date</label>
+                <input id="feedbackDate" name="feedbackDate" type="date" class="form-control signup-name"
+                    placeholder="Feedback Date" required="required">
+            </div>
+
+            <div class="email mb-3">
+                <label class="sr-only" for="feedback">Feedback</label>
+                <input id="feedback" name="issue" type="text" class="form-control signup-name"
+                    placeholder="feedback" required="required">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn app-btn-primary w-25 theme-btn mx-auto">Add Feedback</button>
+                <button type="button" class="btn app-btn-secondary w-25 theme-btn mx-auto" onclick="clickSidebar('sidebarFeedback')">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
