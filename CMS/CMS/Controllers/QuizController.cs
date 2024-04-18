@@ -64,7 +64,6 @@ namespace CMS.Controllers
 
                 quiz.UserId = user.Id;
 
-                // quiz.QAndAs.Add(quizForAddDto.QuesAndAns);
 
                 _quizRepo.Add(quiz);
 
@@ -243,37 +242,6 @@ namespace CMS.Controllers
             catch (Exception e)
             {
                 return BadRequest(e.Message);
-            }
-        }
-
-        [Authorize(Policy = "RequireStudentRole")]
-        [HttpPost]
-        public async Task<IActionResult> SubmitStaticExam(int quizId, int totalQuestions, int correct)
-        {
-            try
-            {
-                var user = await _userManager.GetUserAsync(User);
-
-                var evaluation = new EvaluationResult
-                {
-                    UserId = user.Id,
-                    QuizId = quizId,
-                    TotalQuestions = totalQuestions,
-                    CorrectAnswer = correct
-                };
-
-                _quizRepo.Add(evaluation);
-
-                if (await _quizRepo.SaveAll())
-                {
-                    return Ok("Successfully submitted the exam");
-                }
-
-                return BadRequest("Updating the exam data failed");
-            }
-            catch (Exception e)
-            {
-                return BadRequest("Updating the exam data failed");
             }
         }
 

@@ -269,25 +269,6 @@
 
     });
 
-    $(document).on('click', '#submiStaticPaper', function (e) {
-        var quizId = 1;
-
-        var totalQuestions = 5;
-
-        var ans = ['0', '1', '4', '2', '4', '3'];
-        var correct = 0;
-
-        for (var i = 1; i <= totalQuestions; i++) {
-            var selectedOptionNo = $('input[name="q' + i + '"]:checked').val();
-            if (selectedOptionNo == ans[i]) {
-                correct++;
-            }
-        }
-
-        submitStaticExam(quizId, totalQuestions, correct);
-
-    });
-
     $(document).on('click', '#register', function (e) {
         var fname = $('#fname').val();
         var lname = $('#lname').val();
@@ -326,31 +307,6 @@
         }
 
         signUP(fname, lname, email, username, pass);
-
-    });
-
-    $(document).on('click', '#takeXMLQuizLink', function (e) {
-        takeXMLQuiz();
-    });
-
-    $(document).on('click', '#submitXMLExamPaper', function (e) {
-        var quizId = 2;
-
-        var totalQuestions = $('#totalQ').val();
-
-        var correct = 0;
-
-        for (var i = 0; i < totalQuestions; i++) {
-            var selectedOptionNo = $('input[name="q' + i + '"]:checked').val();
-
-            var ans = $('#ans' + i).val();
-
-            if (selectedOptionNo == ans) {
-                correct++;
-            }
-        }
-
-        submitStaticExam(quizId, totalQuestions, correct);
 
     });
 
@@ -940,32 +896,6 @@ function initDashboardDataTable(tableId, data) {
     });
 }
 
-function submitStaticExam(quizId, totalQuestions, correct) {
-    $.ajax({
-        url: AccountURLs.SubmitStaticExam,
-        type: 'POST',
-        cache: false,
-        data: {
-            quizId: quizId,
-            totalQuestions: totalQuestions,
-            correct: correct
-        },
-        success: function (response) {
-            closeLoader();
-            bootbox.alert({
-                title: 'Success',
-                message: response,
-                callback: function () {
-                    $('#dashboardLink').click();
-                }
-            });
-        },
-        error: function (err) {
-            closeLoader();
-            bootboxAlertModal(err.responseText);
-        }
-    });
-}
 
 function signUP(fname, lname, email, username, pass) {
     $.ajax({
@@ -992,23 +922,6 @@ function signUP(fname, lname, email, username, pass) {
         error: function (err) {
             closeLoader();
             bootboxAlertModal(err.responseText);
-        }
-    });
-}
-
-function takeXMLQuiz() {
-    $.ajax({
-        url: AccountURLs.GetXMLQuiz,
-        type: 'GET',
-        cache: false,
-        data: {},
-        success: function (response) {
-            closeLoader();
-            $('#takeXMLQuizDiv').html(response);
-        },
-        error: function (err) {
-            closeLoader();
-            bootboxAlertModal('There are some problem. Please try again.');
         }
     });
 }

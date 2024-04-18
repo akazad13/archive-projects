@@ -15,9 +15,7 @@
                 }
                 @if (Model.Contains("Student"))
                 {
-                    <a href="#takeQuizStaticDiv" data-toggle="tab" class="list-group-item list-group-item-action">Take Quiz (Static page)</a>
-                    <a id="takeQuizLink" href="#takeQuizDiv" data-toggle="tab" class="list-group-item list-group-item-action">Take Quiz (Database)</a>
-                    <a id="takeXMLQuizLink" href="#takeXMLQuizDiv" data-toggle="tab" class="list-group-item list-group-item-action">Take Quiz (XML files)</a>
+                    <a id="takeQuizLink" href="#takeQuizDiv" data-toggle="tab" class="list-group-item list-group-item-action">Take Quiz</a>
                 }
                 <a href="#" data-toggle="tab" class="list-group-item list-group-item-action" onclick="document.getElementById('logoutForm').submit()">Logout</a>
                 <form id="logoutForm" method="post" asp-controller="Account" asp-action="LogOut" style="display: none"></form>
@@ -40,13 +38,7 @@
             <div id="quizzesDiv" class="card tab-pane">
                 @( await Html.PartialAsync("_Quizzes"))
             </div>
-            <div id="takeQuizStaticDiv" class="card tab-pane">
-                @( await Html.PartialAsync("_StaticQuizzes"))
-            </div>
             <div id="takeQuizDiv" class="card tab-pane">
-
-            </div>
-            <div id="takeXMLQuizDiv" class="card tab-pane">
 
             </div>
         </div>
@@ -70,7 +62,5 @@
         GetQuestions: '@Url.Action("GetQuestions", "Quiz")',
         SubmitExam: '@Url.Action("SubmitExam", "Quiz")',
         GetDashboardData: '@Url.Action("GetDashboardData", "Quiz")',
-        SubmitStaticExam: '@Url.Action("SubmitStaticExam", "Quiz")',
-        GetXMLQuiz: '@Url.Action("GetXMLQuiz", "Quiz")',
     };
 </script>
